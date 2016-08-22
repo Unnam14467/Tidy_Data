@@ -1,7 +1,9 @@
 
 
 
-## Final Script 
+## ReadMe File
+
+## Explains the code flow and implementation of code
 
 ## Setting the base directory
 ## Rest of the script works from this very directory 
@@ -116,5 +118,12 @@ colnames(Total) <- names
 ## A data frame with 
 ## Activity makes no sense as far as mean is concerned
 New_Data_Set <- aggregate( . ~ Subject,Total[,1:80],mean)
+Temp <- table(Total$Subject,Total$Activity)
+New_Data_Set <- cbind(New_Data_Set,Temp)
 
+## Removing the excess column
+New_Data_Set <- New_Data_Set[,-81]
+
+## Writing to a file
+write.table(New_Data_Set,file="tidy.txt",row.names=F)
 
