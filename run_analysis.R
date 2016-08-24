@@ -121,9 +121,9 @@ New_Data_Set <- aggregate( . ~ Subject,Total[,1:80],mean)
 Temp <- table(Total$Subject,Total$Activity)
 New_Data_Set <- cbind(New_Data_Set,Temp)
 
-## Removing the excess column
-New_Data_Set <- New_Data_Set[,-81]
-
+## Removing the excess columns of repeated subject and Freq
+New_Data_Set <- New_Data_Set[,-c(81,83)]
+colnames(New_Data_Set)[81] <- "Activity"
 ## Writing to a file
 write.table(New_Data_Set,file="tidy.txt",row.names=F)
 
