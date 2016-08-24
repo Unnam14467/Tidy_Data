@@ -3,8 +3,11 @@
 ## Files Present
 
 run_analysis.R : Executes the code
+
 README.md : The explanation file for all 
+
 CodeBook : Features used and manipulated
+
 tidy.txt : The final data
 
 
